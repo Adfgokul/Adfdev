@@ -1,0 +1,36 @@
+{
+	"$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"value": "bigdatalabdatafactory17"
+		},
+		"AzureDataLakeStoragezip_accountKey": {
+			"value": ""
+		},
+		"BlobStorageOutput_connectionString": {
+			"value": ""
+		},
+		"FileServer1zip_ls_password": {
+			"value": ""
+		},
+		"OnPremServer_password": {
+			"value": ""
+		},
+		"AzureDataLakeStoragezip_properties_typeProperties_url": {
+			"value": "https://adfgokuladls.dfs.core.windows.net/"
+		},
+		"FileServer1zip_ls_properties_typeProperties_host": {
+			"value": "\\\\aadf-vm\\Data"
+		},
+		"FileServer1zip_ls_properties_typeProperties_userId": {
+			"value": "developer"
+		},
+		"OnPremServer_properties_typeProperties_host": {
+			"value": "\\\\aadf-vm\\Data"
+		},
+		"OnPremServer_properties_typeProperties_userId": {
+			"value": "developer"
+		}
+	}
+}
