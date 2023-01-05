@@ -1,0 +1,17 @@
+{
+	"name": "BinarydestzipDS",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "AzureDataLakeStoragezip",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "Binary",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"fileSystem": "sample-data"
+			}
+		}
+	}
+}

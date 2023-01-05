@@ -1,0 +1,21 @@
+{
+	"name": "Binaryzip",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "FileServer1zip_ls",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "Binary",
+		"typeProperties": {
+			"location": {
+				"type": "FileServerLocation",
+				"fileName": "sampledata.zip"
+			},
+			"compression": {
+				"type": "ZipDeflate",
+				"level": "Optimal"
+			}
+		}
+	}
+}
