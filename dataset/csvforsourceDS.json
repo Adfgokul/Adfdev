@@ -1,0 +1,109 @@
+{
+	"name": "csvforsourceDS",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "webactadls",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"fileName": "f2cb6b70-eda6-429f-8b53-7b8e742540c5.txt",
+				"folderPath": "webdata",
+				"fileSystem": "sample-data"
+			},
+			"columnDelimiter": ",",
+			"escapeChar": "\\",
+			"firstRowAsHeader": true,
+			"quoteChar": "\""
+		},
+		"schema": [
+			{
+				"name": "id",
+				"type": "String"
+			},
+			{
+				"name": "case_number",
+				"type": "String"
+			},
+			{
+				"name": "date",
+				"type": "String"
+			},
+			{
+				"name": "block",
+				"type": "String"
+			},
+			{
+				"name": "iucr",
+				"type": "String"
+			},
+			{
+				"name": "primary_type",
+				"type": "String"
+			},
+			{
+				"name": "description",
+				"type": "String"
+			},
+			{
+				"name": "location_description",
+				"type": "String"
+			},
+			{
+				"name": "arrest",
+				"type": "String"
+			},
+			{
+				"name": "domestic",
+				"type": "String"
+			},
+			{
+				"name": "beat",
+				"type": "String"
+			},
+			{
+				"name": "district",
+				"type": "String"
+			},
+			{
+				"name": "ward",
+				"type": "String"
+			},
+			{
+				"name": "community_area",
+				"type": "String"
+			},
+			{
+				"name": "fbi_code",
+				"type": "String"
+			},
+			{
+				"name": "x_coordinate",
+				"type": "String"
+			},
+			{
+				"name": "y_coordinate",
+				"type": "String"
+			},
+			{
+				"name": "year",
+				"type": "String"
+			},
+			{
+				"name": "updated_on",
+				"type": "String"
+			},
+			{
+				"name": "latitude",
+				"type": "String"
+			},
+			{
+				"name": "longitude",
+				"type": "String"
+			}
+		]
+	}
+}

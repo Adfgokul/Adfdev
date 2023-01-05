@@ -1,0 +1,47 @@
+{
+	"name": "dataflowchallengeweb",
+	"properties": {
+		"type": "MappingDataFlow",
+		"typeProperties": {
+			"sources": [
+				{
+					"dataset": {
+						"referenceName": "csvforsourceDS",
+						"type": "DatasetReference"
+					},
+					"name": "sourcefromadls"
+				}
+			],
+			"sinks": [],
+			"transformations": [],
+			"scriptLines": [
+				"source(output(",
+				"          id as string,",
+				"          case_number as string,",
+				"          date as string,",
+				"          block as string,",
+				"          iucr as string,",
+				"          primary_type as string,",
+				"          description as string,",
+				"          location_description as string,",
+				"          arrest as string,",
+				"          domestic as string,",
+				"          beat as string,",
+				"          district as string,",
+				"          ward as string,",
+				"          community_area as string,",
+				"          fbi_code as string,",
+				"          x_coordinate as string,",
+				"          y_coordinate as string,",
+				"          year as string,",
+				"          updated_on as string,",
+				"          latitude as string,",
+				"          longitude as string",
+				"     ),",
+				"     allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     ignoreNoFilesFound: false) ~> sourcefromadls"
+			]
+		}
+	}
+}
