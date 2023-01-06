@@ -17,6 +17,12 @@
 		"OnPremServer_password": {
 			"value": ""
 		},
+		"webactadls_accountKey": {
+			"value": ""
+		},
+		"AzureSqlDatabasechicago_connectionString": {
+			"value": ""
+		},
 		"AzureDataLakeStoragezip_properties_typeProperties_url": {
 			"value": "https://adfgokuladls.dfs.core.windows.net/"
 		},
@@ -26,11 +32,17 @@
 		"FileServer1zip_ls_properties_typeProperties_userId": {
 			"value": "developer"
 		},
+		"HttpServer_ls_properties_typeProperties_url": {
+			"value": "https://data.cityofchicago.org/resource/crimes.json?$limit=50000"
+		},
 		"OnPremServer_properties_typeProperties_host": {
 			"value": "\\\\aadf-vm\\Data"
 		},
 		"OnPremServer_properties_typeProperties_userId": {
 			"value": "developer"
+		},
+		"webactadls_properties_typeProperties_url": {
+			"value": "https://adfgokuladls.dfs.core.windows.net/"
 		},
 		"containerUri": {
 			"value": ""

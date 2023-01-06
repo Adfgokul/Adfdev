@@ -23,6 +23,14 @@
 			"type": "secureString",
 			"metadata": "Secure string for 'password' of 'OnPremServer'"
 		},
+		"webactadls_accountKey": {
+			"type": "secureString",
+			"metadata": "Secure string for 'accountKey' of 'webactadls'"
+		},
+		"AzureSqlDatabasechicago_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'AzureSqlDatabasechicago'"
+		},
 		"AzureDataLakeStoragezip_properties_typeProperties_url": {
 			"type": "string",
 			"defaultValue": "https://adfgokuladls.dfs.core.windows.net/"
@@ -35,6 +43,10 @@
 			"type": "string",
 			"defaultValue": "developer"
 		},
+		"HttpServer_ls_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://data.cityofchicago.org/resource/crimes.json?$limit=50000"
+		},
 		"OnPremServer_properties_typeProperties_host": {
 			"type": "string",
 			"defaultValue": "\\\\aadf-vm\\Data"
@@ -42,6 +54,10 @@
 		"OnPremServer_properties_typeProperties_userId": {
 			"type": "string",
 			"defaultValue": "developer"
+		},
+		"webactadls_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://adfgokuladls.dfs.core.windows.net/"
 		},
 		"containerUri": {
 			"type": "string",
@@ -70,6 +86,12 @@
 					"factoryName": {
 						"value": "[parameters('factoryName')]"
 					},
+					"webactadls_accountKey": {
+						"value": "[parameters('webactadls_accountKey')]"
+					},
+					"AzureSqlDatabasechicago_connectionString": {
+						"value": "[parameters('AzureSqlDatabasechicago_connectionString')]"
+					},
 					"AzureDataLakeStoragezip_accountKey": {
 						"value": "[parameters('AzureDataLakeStoragezip_accountKey')]"
 					},
@@ -81,6 +103,12 @@
 					},
 					"OnPremServer_password": {
 						"value": "[parameters('OnPremServer_password')]"
+					},
+					"HttpServer_ls_properties_typeProperties_url": {
+						"value": "[parameters('HttpServer_ls_properties_typeProperties_url')]"
+					},
+					"webactadls_properties_typeProperties_url": {
+						"value": "[parameters('webactadls_properties_typeProperties_url')]"
 					},
 					"AzureDataLakeStoragezip_properties_typeProperties_url": {
 						"value": "[parameters('AzureDataLakeStoragezip_properties_typeProperties_url')]"
@@ -100,6 +128,26 @@
 				}
 			},
 			"dependsOn": []
+		},
+		{
+			"name": "bigdatalabdatafactory17_ArmTemplate_1",
+			"type": "Microsoft.Resources/deployments",
+			"apiVersion": "2018-02-01",
+			"properties": {
+				"mode": "incremental",
+				"templateLink": {
+					"uri": "[concat(parameters('containerUri'), '/ArmTemplate_1.json', parameters('containerSasToken'))]",
+					"contentVersion": "1.0.0.0"
+				},
+				"parameters": {
+					"factoryName": {
+						"value": "[parameters('factoryName')]"
+					}
+				}
+			},
+			"dependsOn": [
+				"[resourceId('Microsoft.Resources/deployments', 'bigdatalabdatafactory17_ArmTemplate_0')]"
+			]
 		}
 	]
 }
