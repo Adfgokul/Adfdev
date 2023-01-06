@@ -1,0 +1,16 @@
+{
+	"name": "sqldbwebDSchicago",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "AzureSqlDatabasechicago",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": [],
+		"typeProperties": {
+			"schema": "dbo",
+			"table": "2022CrimeData"
+		}
+	}
+}

@@ -10,7 +10,7 @@
 		"typeProperties": {
 			"location": {
 				"type": "AzureBlobFSLocation",
-				"fileName": "f2cb6b70-eda6-429f-8b53-7b8e742540c5.txt",
+				"fileName": "chicagodata.csv",
 				"folderPath": "webdata",
 				"fileSystem": "sample-data"
 			},

@@ -12,17 +12,31 @@
 					"name": "sourcefromadls"
 				}
 			],
-			"sinks": [],
+			"sinks": [
+				{
+					"dataset": {
+						"referenceName": "sqldbwebDSchicago",
+						"type": "DatasetReference"
+					},
+					"name": "sinkweb"
+				}
+			],
 			"transformations": [
 				{
 					"name": "derivedColumnweb"
+				},
+				{
+					"name": "aggregateweb"
+				},
+				{
+					"name": "filterforyear"
 				}
 			],
 			"scriptLines": [
 				"source(output(",
 				"          id as string,",
 				"          case_number as string,",
-				"          date as string,",
+				"          date as timestamp 'yyyy-MM-dd\\'T\\'HH:mm:ss',",
 				"          block as string,",
 				"          iucr as string,",
 				"          primary_type as string,",
@@ -45,8 +59,25 @@
 				"     allowSchemaDrift: true,",
 				"     validateSchema: false,",
 				"     ignoreNoFilesFound: false) ~> sourcefromadls",
-				"sourcefromadls derive(date = isDate(date),",
-				"          time = isTimestamp(date)) ~> derivedColumnweb"
+				"sourcefromadls derive(Date = toString(date,'yyyy-MM-dd'),",
+				"          time = toString(date, 'HH:mm:ss.sss')) ~> derivedColumnweb",
+				"derivedColumnweb aggregate(groupBy(iucr,",
+				"          year,",
+				"          derivedColumnweb@Date,",
+				"          time,",
+				"          DayOfWeek = dayOfWeek(sourcefromadls@date)),",
+				"     CountOfIUCR = count(iucr)) ~> aggregateweb",
+				"aggregateweb filter(year=='2022') ~> filterforyear",
+				"filterforyear sink(allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     deletable:false,",
+				"     insertable:true,",
+				"     updateable:false,",
+				"     upsertable:false,",
+				"     format: 'table',",
+				"     skipDuplicateMapInputs: true,",
+				"     skipDuplicateMapOutputs: true,",
+				"     errorHandlingOption: 'stopOnFirstError') ~> sinkweb"
 			]
 		}
 	}
